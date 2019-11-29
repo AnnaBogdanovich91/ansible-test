@@ -1,0 +1,9 @@
+---
+# tasks file for control
+   - name: install tools
+     apt:
+       pkg:
+       - python-httplib2
+       - curl
+       state: present
+       update_cache: yes

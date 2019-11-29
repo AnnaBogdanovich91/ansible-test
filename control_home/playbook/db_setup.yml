@@ -1,9 +1,6 @@
 ---
  - hosts: database
    become: yes
-   tasks:
-   - name: install mysql
-     apt: name=mysql-server state=present update_cache=yes
+   roles:
+   - mysql
 
-   - name: start service mysql
-     service: name=mysql state=started enabled=yes

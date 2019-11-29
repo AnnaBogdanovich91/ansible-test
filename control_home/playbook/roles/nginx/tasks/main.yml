@@ -1,0 +1,14 @@
+---
+# tasks file for nginx
+   - name: install tools
+     apt:
+       pkg:
+       - python-httplib2
+       state: present
+       update_cache: yes
+  
+   - name: install nginx
+     apt: name=nginx state=present update_cache=yes
+
+   - name: start service nginx
+     service: name=nginx state=started enabled=yes

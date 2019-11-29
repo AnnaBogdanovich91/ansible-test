@@ -19,7 +19,8 @@ RUN apt install --yes software-properties-common && \
 	apt-add-repository --yes ppa:ansible/ansible && \
 	apt update && \
 	apt install --yes ansible \
-	apt install --yes nano
+	apt install --yes nano \
+	apt install --yes curl
 
 # Following lines taken from: https://github.com/tianon/dockerfiles
 #
