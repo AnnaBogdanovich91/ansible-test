@@ -22,7 +22,7 @@
   - name: verify mysql status
     command: service mysql status
   - name: verify mysql is listening on port 80
-    wait_for: port=3306 timeout=1 
+    wait_for: host={{ ansible_eth0.ipv4.address }} port=3306 timeout=1 
 
 - hosts: control
   tasks:
@@ -52,7 +52,7 @@
     register: app_index
 
   - fail: msg="index failed to return context"
-    when: "'Hello, from sunny {{item.item}}' not in item.content"
+    when: "'Hello, from sunny {{ item.item }}' not in item.content"
     with_items: "{{app_index.results}}"
 
   - name: verify backend db response
@@ -61,6 +61,6 @@
     register: app_db
 
   - fail: msg="index failed to return context"
-    when: "'Database Connected from {{item.item}}' not in item.content"
+    when: "'Database Connected from {{ item.item }}' not in item.content"
     with_items: "{{app_db.results}}"
 
