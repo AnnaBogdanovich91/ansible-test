@@ -6,4 +6,5 @@
       - python-httplib2
       - curl
       state: present
-      update_cache: yes
+    tags: [ 'packages']
+
